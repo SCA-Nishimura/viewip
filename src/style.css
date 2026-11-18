@@ -1,0 +1,62 @@
+:root {
+  --bar-h: 34px;
+  --row-h: calc((100vh - var(--bar-h)) / 64);
+  --bg: #00203f;
+  --num: #2f5a8a;
+  --alive: #80ff00;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  font-family: "Meiryo UI", "Yu Gothic UI", sans-serif;
+  user-select: none;
+  cursor: default;
+}
+
+#grid {
+  height: calc(100vh - var(--bar-h));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(64, 1fr);
+  grid-auto-flow: column;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: calc(var(--row-h) * 0.82);
+  line-height: 1;
+  color: var(--num);
+  padding-left: 2px;
+}
+
+.cell .n { width: 2.1em; flex: none; }
+.cell .h { overflow: hidden; text-overflow: ellipsis; }
+
+.cell.alive { background: var(--alive); color: #000; }
+
+#bar {
+  height: var(--bar-h);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px;
+  background: #1e1e1e;
+  color: #bbb;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+#adapter {
+  background: #2b2b2b;
+  color: #eee;
+  border: 1px solid #444;
+  padding: 3px 6px;
+  font: inherit;
+  min-width: 360px;
+}
